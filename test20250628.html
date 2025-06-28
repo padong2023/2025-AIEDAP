@@ -49,14 +49,9 @@
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, query, where, onSnapshot, doc, updateDoc, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global variables provided by the Canvas environment (mocked for direct HTML run)
-        // In a real Canvas environment, these would be provided by the runtime.
-        // For local testing or GitHub Pages, you might need to manually configure firebaseConfig
-        // or ensure your GitHub Actions/build process injects it.
-        const appId = 'attendance-notifier-app-default'; // Default app ID for GitHub Pages if not provided
+        // Firebase 설정 - GitHub Pages 배포를 위해 환경변수나 설정 파일에서 가져와야 함
+        // 실제 배포 시에는 GitHub Secrets를 사용하여 환경변수로 주입하는 것을 권장
         const firebaseConfig = {
-            // Your Firebase project configuration goes here
-            // Example (REPLACE WITH YOUR ACTUAL CONFIG):
             apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
             projectId: "YOUR_PROJECT_ID",
@@ -64,12 +59,6 @@
             messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
             appId: "YOUR_APP_ID"
         };
-        const initialAuthToken = null; // Canvas provides this, for GitHub Pages we use anonymous sign-in
-
-        // Ensure these variables are globally accessible for the React script
-        window.__app_id = appId;
-        window.__firebase_config = JSON.stringify(firebaseConfig);
-        window.__initial_auth_token = initialAuthToken;
 
         // Initialize Firebase app and services
         window.firebaseApp = initializeApp(firebaseConfig);
@@ -86,14 +75,13 @@
 
     <script type="text/babel">
         const { useState, useEffect, createContext, useContext, useRef } = React;
-        const { initializeApp } = window.firebase; // Not strictly needed as initialized globally
+        const { initializeApp } = window.firebase;
         const { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } = window.firebase;
         const { getFirestore, collection, addDoc, query, where, onSnapshot, doc, updateDoc, orderBy, serverTimestamp } = window.firebase;
 
-        // Global variables provided by the Canvas environment (accessed from window)
-        const appId = window.__app_id;
-        const firebaseConfig = JSON.parse(window.__firebase_config);
-        const initialAuthToken = window.__initial_auth_token;
+        // App ID for Firestore collection path
+        const appId = 'attendance-notifier-app-default';
+        const initialAuthToken = null; // For GitHub Pages, we use anonymous sign-in
 
         // Create a context for Firebase and user data
         const AppContext = createContext(null);
