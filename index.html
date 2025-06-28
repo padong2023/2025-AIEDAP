@@ -49,15 +49,16 @@
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, query, where, onSnapshot, doc, updateDoc, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase 설정 - GitHub Pages 배포를 위해 환경변수나 설정 파일에서 가져와야 함
-        // 실제 배포 시에는 GitHub Secrets를 사용하여 환경변수로 주입하는 것을 권장
+        // Firebase 설정 - 실제 프로젝트 정보로 업데이트하세요!
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
+          apiKey: "AIzaSyBRkvkdUS9FyfccgptCRCz5CMaQD0W7Rc0",
+          authDomain: "aiedap-test01.firebaseapp.com",
+          databaseURL: "https://aiedap-test01-default-rtdb.firebaseio.com",
+          projectId: "aiedap-test01",
+          storageBucket: "aiedap-test01.firebasestorage.app",
+          messagingSenderId: "362849388419",
+          appId: "1:362849388419:web:b2b2d4943450ec019b58b6",
+          measurementId: "G-5N5Y2XKCM1"
         };
 
         // Initialize Firebase app and services
@@ -71,7 +72,6 @@
             getFirestore, collection, addDoc, query, where, onSnapshot, doc, updateDoc, orderBy, serverTimestamp
         };
     </script>
-
 
     <script type="text/babel">
         const { useState, useEffect, createContext, useContext, useRef } = React;

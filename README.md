@@ -25,6 +25,8 @@
 
 ### 1. Firebase 프로젝트 설정
 
+**자세한 설정 가이드는 [FIREBASE_SETUP.md](FIREBASE_SETUP.md)를 참조하세요.**
+
 1. [Firebase Console](https://console.firebase.google.com/)에서 새 프로젝트 생성
 2. Firestore Database 활성화
 3. Authentication에서 익명 로그인 활성화
@@ -32,7 +34,7 @@
 
 ### 2. Firebase 설정 업데이트
 
-`test20250628.html` 파일의 Firebase 설정을 실제 프로젝트 정보로 업데이트:
+`index.html` 파일의 Firebase 설정을 실제 프로젝트 정보로 업데이트:
 
 ```javascript
 const firebaseConfig = {
@@ -48,7 +50,7 @@ const firebaseConfig = {
 ### 3. 실행
 
 1. 파일을 웹 서버에 업로드하거나 로컬 서버에서 실행
-2. 브라우저에서 `test20250628.html` 접속
+2. 브라우저에서 `index.html` 접속
 
 ## 배포
 
@@ -57,6 +59,7 @@ const firebaseConfig = {
 1. 이 저장소를 GitHub에 업로드
 2. Settings > Pages에서 Source를 선택
 3. Branch를 선택하고 Save
+4. Firebase Console에서 GitHub Pages 도메인을 허용된 도메인에 추가
 
 ### 보안 고려사항
 
@@ -75,6 +78,14 @@ const firebaseConfig = {
 2. 비밀번호 입력 (기본값: 1225)
 3. 전체 학생들의 알리미 목록 확인
 4. 각 알리미에 대해 승인/거절 버튼으로 처리
+
+## 문제 해결
+
+### "제출 중"에서 멈추는 경우:
+1. Firebase 설정 정보가 올바른지 확인
+2. 브라우저 콘솔에서 오류 메시지 확인
+3. Firestore Database가 활성화되었는지 확인
+4. [FIREBASE_SETUP.md](FIREBASE_SETUP.md)의 설정 가이드 참조
 
 ## 라이선스
 
